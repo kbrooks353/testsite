@@ -5,6 +5,9 @@ const host = '0.0.0.0';
 const port = 8000;
 
 const requestListener = function(req, res){
+    if(req.URL.protocol === 'www'){
+        res.redirect('https://' + req.hostname + req.url);
+    }
     fs.readFile(__dirname + "/index.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
