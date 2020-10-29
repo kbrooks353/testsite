@@ -8,8 +8,9 @@ const requestListener = function(req, res){
     
     if(req.headers.host && req.headers.host.startsWith('www')){
         console.log("hi");
-        res.writeHead(301);
-        res.end();
+        console.log(req.headers);
+        res.writeHead(301, {Location });
+        return;
     }
     fs.readFile(__dirname + "/index.html")
         .then(contents => {
