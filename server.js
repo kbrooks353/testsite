@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require('fs').promises;
+const url = require('url');
 
 const host = '0.0.0.0';
 const port = 8000;
@@ -8,7 +9,7 @@ const requestListener = function(req, res){
     
     if(req.headers.host && req.headers.host.startsWith('www')){
         console.log("hi");
-        console.log(req.protocol);
+        console.log(url);
 
         res.writeHead(301, {Location: req.protocol + host + req.path});
         return;
