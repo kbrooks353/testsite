@@ -8,7 +8,7 @@ const requestListener = function(req, res){
     
     if(req.headers.host && req.headers.host.startsWith('www')){
         console.log("hi");
-        console.log(req.url);
+        console.log(req);
 
         res.writeHead(301, {Location: req.protocol + host + req.path});
         return;
