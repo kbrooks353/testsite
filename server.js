@@ -5,10 +5,11 @@ const host = '0.0.0.0';
 const port = 8000;
 
 const requestListener = function(req, res){
-    console.log(req);
     
     if(req.host && req.host.startsWith('www')){
+        console.log("hi");
         res.redirect('https://' + req.hostname + req.url);
+        return;
     }
     fs.readFile(__dirname + "/index.html")
         .then(contents => {
