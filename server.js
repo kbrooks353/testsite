@@ -1,6 +1,5 @@
 const http = require("http");
 const fs = require('fs').promises;
-const url = require('url');
 
 const host = '0.0.0.0';
 const port = 8000;
@@ -9,7 +8,7 @@ const requestListener = function(req, res){
     
     if(req.headers.host && req.headers.host.startsWith('www')){
         console.log("hi");
-        console.log(url);
+        console.log(req.path);
 
         res.writeHead(301, {Location: req.protocol + host + req.path});
         return;
@@ -29,6 +28,5 @@ const requestListener = function(req, res){
 
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {
-    console.log('Server is running on http://')
-    console.log(url);
+    console.log('Server is running on http://');
 })
