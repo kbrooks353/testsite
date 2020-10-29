@@ -8,7 +8,7 @@ const requestListener = function(req, res){
     
     if(req.headers.host && req.headers.host.startsWith('www')){
         console.log("hi");
-        res.redirect('https://' + req.hostname + req.url);
+        res.writeHead(301);
         return;
     }
     fs.readFile(__dirname + "/index.html")
