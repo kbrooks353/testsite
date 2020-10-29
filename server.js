@@ -6,7 +6,7 @@ const port = 8000;
 
 const requestListener = function(req, res){
     
-    if(req.host && req.host.startsWith('www')){
+    if(req.host && req.header.host.startsWith('www')){
         console.log("hi");
         res.redirect('https://' + req.hostname + req.url);
         return;
