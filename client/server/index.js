@@ -8,6 +8,7 @@ app.use(express.static("../public"));
 
 // routing
 if(process.env.NODE_ENV === 'production') {
+    console.log('hi');
     app.get(function (req, res) {
          res.sendFile(path.join(__dirname, '../build', 'index.html'));
     });
